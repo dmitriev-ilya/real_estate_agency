@@ -81,9 +81,9 @@ class Claim(models.Model):
 
 
 class Owner(models.Model):
-    owner = models.CharField('ФИО владельца', max_length=200, db_index=True)
-    owners_phonenumber = models.CharField('Номер владельца', max_length=20)
-    owner_pure_phone = PhoneNumberField(
+    full_name = models.CharField('ФИО владельца', max_length=200, db_index=True)
+    phonenumber = models.CharField('Номер владельца', max_length=20)
+    pure_phone = PhoneNumberField(
         region='RU',
         blank=True,
         verbose_name='Нормализованный номер владельца'
@@ -97,4 +97,4 @@ class Owner(models.Model):
     )
 
     def __str__(self):
-        return f'{self.owner}, {self.owner_pure_phone}'
+        return f'{self.full_name}, {self.pure_phone}'
