@@ -66,12 +66,14 @@ class Claim(models.Model):
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        verbose_name='Кто жаловался:'
+        verbose_name='Кто жаловался:',
+        related_name='user_claims'
     )
     flat = models.ForeignKey(
         Flat,
         on_delete=models.CASCADE,
-        verbose_name='Квартира, на которую жаловались:'
+        verbose_name='Квартира, на которую жаловались:',
+        related_name='flat_claims'
     )
 
     def __str__(self):
