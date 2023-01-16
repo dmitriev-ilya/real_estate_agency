@@ -67,13 +67,13 @@ class Claim(models.Model):
         User,
         on_delete=models.CASCADE,
         verbose_name='Кто жаловался:',
-        related_name='user_claims'
+        related_name='claims'
     )
     flat = models.ForeignKey(
         Flat,
         on_delete=models.CASCADE,
         verbose_name='Квартира, на которую жаловались:',
-        related_name='flat_claims'
+        related_name='claims'
     )
 
     def __str__(self):
